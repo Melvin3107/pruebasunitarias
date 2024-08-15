@@ -1,0 +1,99 @@
+/* Estilo general para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8; /* Un gris azulado claro */
+    color: #333; /* Texto en gris oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor principal de la calculadora */
+.calculator {
+    border: 1px solid #d0dbe2; /* Borde gris azulado claro */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background-color: #ffffff; /* Fondo blanco para la calculadora */
+    padding: 20px;
+    width: 320px;
+}
+
+/* Pantalla de la calculadora */
+#display {
+    background-color: #007bff; /* Azul brillante */
+    color: white; /* Texto blanco en la pantalla */
+    font-size: 2em;
+    text-align: right;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 60px;
+    overflow: hidden;
+}
+
+/* Contenedor de los botones */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* Botones de la calculadora */
+button {
+    background-color: #e3f2fd; /* Azul claro */
+    border: 1px solid #b3e5fc; /* Azul más oscuro para el borde */
+    border-radius: 5px;
+    color: #0277bd; /* Azul oscuro para el texto */
+    font-size: 1.2em;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Diseño para el botón de igual y otros especiales */
+button.operator {
+    background-color: #0288d1; /* Azul más intenso para las operaciones */
+    color: white;
+}
+
+button.operator:hover {
+    background-color: #0277bd; /* Azul más oscuro al pasar el mouse */
+}
+
+button.operator:active {
+    background-color: #01579b; /* Azul más oscuro al hacer clic */
+}
+
+button.equals {
+    background-color: #00796b; /* Verde azulado para el igual */
+    color: white;
+    grid-column: span 4; /* Ocupa toda la fila en la parte inferior */
+}
+
+button.equals:hover {
+    background-color: #004d40; /* Verde más oscuro al pasar el mouse */
+}
+
+button.equals:active {
+    background-color: #00251a; /* Verde aún más oscuro al hacer clic */
+}
+
+button.clear {
+    background-color: #ffebee; /* Rosa pálido para borrar */
+    color: #c62828; /* Rojo para el texto */
+    grid-column: span 4; /* Ocupa toda la fila en la parte superior */
+}
+
+button.clear:hover {
+    background-color: #ffcdd2; /* Rosa más oscuro al pasar el mouse */
+}
+
+button.clear:active {
+    background-color: #d32f2f; /* Rojo más oscuro al hacer clic */
+    color: white;
+}
