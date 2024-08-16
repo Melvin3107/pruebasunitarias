@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Verificar Instalación') {
             steps {
-                bat 'python --version'
-                bat 'pip --version'
+                sh 'python3 --version'
+                sh 'pip3 --version'
             }
         }
 
@@ -17,19 +17,19 @@ pipeline {
 
         stage('Crear Entorno Virtual') {
             steps {
-                bat 'python -m venv venv'
+                sh 'python3 -m venv venv'
             }
         }
 
         stage('Activar Entorno Virtual y Instalar Dependencias') {
             steps {
-                bat '.\\venv\\Scripts\\pip install -r requirements.txt'
+                sh 'source venv/bin/activate && pip install -r requirements.txt'
             }
         }
 
         stage('Ejecutar Pruebas') {
             steps {
-                bat '.\\venv\\Scripts\\python run_tests.py'
+                sh 'source venv/bin/activate && python run_tests.py'
             }
         }
     }
