@@ -23,13 +23,21 @@ pipeline {
 
         stage('Activar Entorno Virtual y Instalar Dependencias') {
             steps {
-                sh 'source venv/bin/activate && pip install -r requirements.txt'
+                // Activar entorno virtual y usar pip para instalar dependencias
+                sh '''
+                . venv/bin/activate
+                pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Ejecutar Pruebas') {
             steps {
-                sh 'source venv/bin/activate && python run_tests.py'
+                // Activar entorno virtual y ejecutar pruebas
+                sh '''
+                . venv/bin/activate
+                python -m unittest discover
+                '''
             }
         }
     }
@@ -40,6 +48,10 @@ pipeline {
         }
         failure {
             echo 'Una o más pruebas fallaron.'
+        }
+        always {
+            // Limpiar el workspace después de la ejecución del pipeline
+            deleteDir()
         }
     }
 }
