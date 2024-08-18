@@ -2,10 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Verificar Instalación') {
+        stage('Instalar Python') {
             steps {
-                sh 'python3 --version'
-                sh 'pip3 --version'
+                sh '''
+                   apk add --no-cache python3 py3-pip
+                   python3 --version
+                   pip3 --version
+                '''
             }
         }
 
@@ -49,4 +52,3 @@ pipeline {
         }
     }
 }
-
